@@ -10,7 +10,13 @@ The exe file for windows is inside the dist directory.
 
 (ii) Some bugs may occur while ordering more than 10 items in more than one conservative tries.
 
-**New Updates:**
+**New Update**
+
+(i) Optional for enhancing experience: Need to install pyfiglet.
+
+	**installation:** pip install -r requirements.txt    or    pip3 install -r requirements.txt
+
+**Old Updates:**
 
 (i) Source code (ChatBot.py) has been updated and a 'random suggestion' feature has been installed.
 
