@@ -2,6 +2,12 @@ import random
 from random import sample
 import os
 from time import sleep
+try:
+    from pyfiglet import Figlet
+    f = Figlet(font='big')
+    print(f.renderText('Merryweather Cheesecake'))
+except ImportError or ModuleNotFoundError:
+    pass
 random_choice = ["Bread cheesecakes", "No egg cheesecakes", "Low amount cheese cheesecakes", 'Egg cheesecakes', 'Cappucino']
 cart = []
 new_list = []
