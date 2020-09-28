@@ -21,3 +21,6 @@ The exe file for windows is inside the dist directory.
 (i) Source code (ChatBot.py) has been updated and a 'random suggestion' feature has been installed.
 
 (ii) Various bugs fixed and added Time-Sleep function for better design. 
+
+
+![alt text](https://github.com/Faiz-Anjum/ChatBot/blob/master/homescreen.png?raw=true)
