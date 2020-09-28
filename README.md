@@ -14,7 +14,7 @@ The exe file for windows is inside the dist directory.
 
 (i) Optional for enhancing experience: Need to install pyfiglet.
 
-	**installation:** pip install -r requirements.txt    or    pip3 install -r requirements.txt
+	installation: pip install -r requirements.txt    or    pip3 install -r requirements.txt
 
 **Old Updates:**
 
@@ -22,5 +22,13 @@ The exe file for windows is inside the dist directory.
 
 (ii) Various bugs fixed and added Time-Sleep function for better design. 
 
+**Screenshots**
 
-![alt text](https://github.com/Faiz-Anjum/ChatBot/blob/master/homescreen.png?raw=true)
+![Homescreen](https://github.com/Faiz-Anjum/ChatBot/blob/master/Screenshots/homescreen.png?raw=true)
+Homescreen
+
+
+
+
+![Menu](https://github.com/Faiz-Anjum/ChatBot/blob/master/Screenshots/menu.png?raw=true)
+Menu
