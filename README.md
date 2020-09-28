@@ -4,13 +4,13 @@ This script takes your order, suggest you something if the thing you are looking
 At last this script shows you all your ordered items and finishes.
 The exe file for windows is inside the dist directory.
 
-Known issues:
+#Known issues:
 
 (i) .exe file is not updated/synchronized with source code.
 
 (ii) Some bugs may occur while ordering more than 10 items in more than one conservative tries.
 
-New Updates:
+#New Updates:
 
 (i) Source code (ChatBot.py) has been updated and a 'random suggestion' feature has been installed.
 
