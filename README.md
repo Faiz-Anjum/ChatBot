@@ -19,6 +19,7 @@ The exe file for windows is inside the dist directory.
 (i) Optional for enhancing experience: Need to install pyfiglet.
 
 	installation: pip install -r requirements.txt    or    pip3 install -r requirements.txt
+(ii) Bug fixes
 
 **Old Updates:**
 
