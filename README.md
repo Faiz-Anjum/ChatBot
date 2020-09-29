@@ -6,7 +6,7 @@ The exe file for windows is inside the dist directory.
 
 **Known issues:**
 
-***(i) .exe file is not updated/synchronized with source code.***  **Obsolete**
+** ***(i) .exe file is not updated/synchronized with source code.*** ** **Obsolete**
 
 	the .exe file can't be synchronized with the source code due to import of various modules in the ChatBot script.
 	The old .exe file is working fine but it is outdated it will be no longer updated.
