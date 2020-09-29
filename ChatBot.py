@@ -222,46 +222,53 @@ def no_egg_cheesecake():
         choco = input('And what type of chocolate flavour do you want? \na) Normal chocolate \nb) Dark chocolate \n>')
         if choco == 'a' or choco == 'A' or choco == 'a)' or choco == 'A)':
             os.system('cls')
-            try:
-                pieces = int(input("And how many pieces of Normal chocolate cheesecake without eggs do you want? \n> "))
-                if pieces == 1:
-                    print('')
-                    print("Here is your order: \n{} piece Normal chocolate cheesecake without eggs." .format(pieces))
-                    cart.append("{} piece Normal chocolate cheesecake without eggs.".format(pieces))
-                    order2()
-                    return cart
-                elif pieces == 0:
+            while cart.count('10 piece of Normal chocolate cheesecake without eggs.') == 0:
+                try:
+                    pieces = int(input("And how many pieces of Normal chocolate cheesecake without eggs do you want? \n> "))
+                    if pieces == 1:
+                        print('')
+                        print("Here is your order: \n{} piece Normal chocolate cheesecake without eggs." .format(pieces))
+                        cart.append("{} piece Normal chocolate cheesecake without eggs.".format(pieces))
+                        order2()
+                        return cart
+                    elif pieces == 0:
+                        empty_response()
+                        no_egg_cheesecake()
+                    elif pieces > 10:
+                        limit()
+                        no_egg_cheesecake()
+                    elif pieces != 1:
+                        os.system('cls')
+                        print("Here is your order: \n{} pieces of Normal chocolate cheesecake without eggs." .format(pieces))
+                        cart.append("{} pieces of Normal chocolate cheesecake without eggs.".format(pieces))
+                        order2()
+                        return cart
+                    else:
+                        empty_response()
+                        no_egg_cheesecake()
+                except ValueError:
                     empty_response()
                     no_egg_cheesecake()
-                elif pieces > 10:
-                    limit()
-                    no_egg_cheesecake()
-                elif pieces != 1:
-                    os.system('cls')
-                    print("Here is your order: \n{} pieces of Normal chocolate cheesecake without eggs." .format(pieces))
-                    cart.append("{} pieces of Normal chocolate cheesecake without eggs.".format(pieces))
-                    order2()
-                    return cart
-                else:
-                    empty_response()
-                    no_egg_cheesecake()
-            except ValueError:
-                empty_response()
+            if cart.count('10 piece of Normal chocolate cheesecake without eggs.') > 0:
+                limit_reached()
+                no_egg_cheesecake()
+            else:
+                limit_reached()
                 no_egg_cheesecake()
         elif choco == 'b' or choco == 'B' or choco == 'B)' or choco =='b)':
-            unavailable()
+                unavailable()
         elif choco != choco.isalpha():
-            empty_response()
-            no_egg-cheesecake()
+                empty_response()
+                no_egg-cheesecake()
         elif len(choco) == 0:
-            empty_response()
-            no_egg_cheesecake()
+                empty_response()
+                no_egg_cheesecake()
         elif choco != 'a' or choco != 'b':
-            empty_response()
-            no_egg_cheesecake()
+                empty_response()
+                no_egg_cheesecake()
         else:
-            print("Sorry I do not understand")
-            no_egg_cheesecake()
+                print("Sorry I do not understand")
+                no_egg_cheesecake()
     elif choice  == 'b' or choice == 'B' or choice == 'b)' or choice == 'B)' and choice.isalpha() and len(choice) > 0:
         os.system('cls')
         try:
@@ -385,7 +392,10 @@ def low_amount_cheese():
                     cart.append('{} piece chocolate cheesecake with 50% cheese.' .format(amount))
                     order2()
                     return cart
-                elif amount >= 1:
+                elif amount > 10:
+                    limit()
+                    low_amount_cheese()
+                elif amount > 1:
                     os.system('cls')
                     print('Here is your order: \n{} pieces of chocolate cheesecake with 50% cheese.' .format(amount))
                     cart.append('{} pieces of chocolate cheesecake with 50% cheese.' .format(amount))
@@ -393,9 +403,6 @@ def low_amount_cheese():
                     return cart
                 elif amount == 0:
                     empty_response()
-                    low_amount_cheese()
-                elif amount > 10:
-                    limit()
                     low_amount_cheese()
                 else:
                     empty_response()
@@ -411,7 +418,7 @@ def low_amount_cheese():
                     if int(p_choice) == 1:
                         order()
                     elif int(p_choice) > 1 or int(p_choice) < 1 or int(p_choice) == 0:
-                        #empty_response()
+                        empty_response()
                         low_amount_cheese()
                 except p_choice !=1:
                     empty_response()
@@ -443,7 +450,10 @@ def low_amount_cheese():
                     cart.append('{} piece Vanilla cheesecake with 25% cheese.' .format(amount))
                     order2()
                     return cart
-                elif amount >= 1:
+                elif amount > 10:
+                    limit()
+                    low_amount_cheese()
+                elif amount > 1:
                     os.system('cls')
                     print('Here is your order: \n{} pieces of Vanilla cheesecake with 25% cheese.' .format(amount))
                     cart.append('{} pieces of Vanilla cheesecake with 25% cheese.' .format(amount))
@@ -451,9 +461,6 @@ def low_amount_cheese():
                     return cart
                 elif amount == 0:
                     empty_response()
-                    low_amount_cheese()
-                elif amount > 10:
-                    limit()
                     low_amount_cheese()
                 else:
                     empty_response()
@@ -471,7 +478,10 @@ def low_amount_cheese():
                     cart.append('{} piece Vanilla cheesecake with 50% cheese.' .format(amount))
                     order2()
                     return cart
-                elif amount >= 1:
+                elif amount > 10:
+                    limit()
+                    low_amount_cheese()
+                elif amount > 1:
                     os.system('cls')
                     print('Here is your order: \n{} pieces of Vanilla cheesecake with 50% cheese.' .format(amount))
                     cart.append('{} pieces of Vanilla cheesecake with 50% cheese.' .format(amount))
@@ -479,9 +489,6 @@ def low_amount_cheese():
                     return cart
                 elif amount == 0:
                     empty_response()
-                    low_amount_cheese()
-                elif pieces > 10:
-                    limit()
                     low_amount_cheese()
                 else:
                     empty_response()
@@ -491,6 +498,9 @@ def low_amount_cheese():
                 low_amount_cheese()
         elif p_choice == 'c' or p_choice == 'C' or p_choice == 'c)' or p_choice == 'C)' and p_choice.isalpha() and len(p_choice) > 0:
             unavailable()
+        elif p_choice != 'a' or p_choice != 'b' or p_choice != 'c' or p_choice != 'A' or p_choice != 'B' or p_choice != 'C':
+            empty_response()
+            low_amount_cheese()
     elif choice != 'a' or choice != 'b':
         try:
             try:
