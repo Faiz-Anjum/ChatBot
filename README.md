@@ -30,10 +30,12 @@ The exe file for windows is inside the dist directory.
 **Screenshots**
 
 ![Homescreen](https://github.com/Faiz-Anjum/ChatBot/blob/master/Screenshots/homescreen.png?raw=true)
+
 Homescreen
 
 
 
 
 ![Menu](https://github.com/Faiz-Anjum/ChatBot/blob/master/Screenshots/menu.png?raw=true)
+
 Menu
