@@ -9,7 +9,7 @@ The exe file for windows is inside the dist directory.
 ** ***(i) .exe file is not updated/synchronized with source code.*** ** **Obsolete**
 
 	the .exe file can't be synchronized with the source code due to import of various modules in the ChatBot script.
-	The old .exe file is working fine but it is outdated it will be no longer updated.
+	The old .exe file is working fine but it is outdated and will no longer be updated.
 	The .exe file is still working and can be used to depict what the original script looked like.
 
 (ii) Some bugs may occur while ordering more than 10 items in more than one conservative tries.
