@@ -41,7 +41,7 @@ def get_name(shop_name = 'Merryweather Cheesecakes'):
         get_name()
 def empty_response():
     os.system('cls')
-    print("Please enter the respective question.")
+    print("Please answer the respective question.")
     sleep(3)
 def unavailable():
     os.system('cls')
