@@ -6,9 +6,14 @@ import os           # For clearing Terminal
 
 from time import sleep      # Default time = 3 Seconds
 
+
+
+font_list = ['big', 'ogre']
+random_font = random.sample(font_list, 1)
+
 try:    # Optional for style, importing pyfiglet module
     from pyfiglet import Figlet
-    f = Figlet(font='big')
+    f = Figlet(font='{}'.format(*random_font))
     print(f.renderText('Merryweather Cheesecake'))
 except ImportError or ModuleNotFoundError:
     pass
@@ -30,7 +35,7 @@ def limit():             # If order exceeds the 10 item limit
 
 
     
-def limit_reached():        # When you cannot order anymore items
+def limit_reached():        # When you cannot order more items
     os.system('cls')
     print('Sorry it looks like you have reached the maximum limit of ordering this item. Maybe you can try something else. \n')
     order()
