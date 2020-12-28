@@ -1,5 +1,7 @@
 import random                                # For random suggestions
 
+import sys
+
 from random import sample
 
 import os           # For clearing Terminal
@@ -29,14 +31,24 @@ new_list = []
 
 
 def limit():             # If order exceeds the 10 item limit
-    os.system('cls')
+    cls()
     print('Sorry you can only order 10 items.')
     sleep(3)
 
 
+def cls():
+
+    if sys.platform.startswith('win32' or 'win64' or 'win86'):
+        os.system('cls')
+    else:
+        os.system('clear')
+
+
+
+
     
 def limit_reached():        # When you cannot order more items
-    os.system('cls')
+    cls()
     print('Sorry it looks like you have reached the maximum limit of ordering this item. Maybe you can try something else. \n')
     order()
 
@@ -45,7 +57,7 @@ def limit_reached():        # When you cannot order more items
 def get_name(shop_name = 'Merryweather Cheesecakes'):
     name = input("Can I have your name please? \n> ")
     name1 = name.title()
-    os.system('cls')
+    cls()
     
     if len(name1) > 0 and not name1.isdigit():
         print("Hello {}, welcome to {}." .format(name1, shop_name))
@@ -72,16 +84,16 @@ def get_name(shop_name = 'Merryweather Cheesecakes'):
 
         
 def empty_response():  # For empty responses (Do you really think I wouldn't have patched that?)
-    os.system('cls')
+    cls()
     print("Please answer the respective question.")
     sleep(3)
 
 
     
 def unavailable():    # If something is unavailable
-    os.system('cls')
+    cls()
     random1 = random.sample(random_choice, 1)
-    abc = input('Sorry, the thing you\'re looking for is currently unavailable. \nWould you like to try our delicious {}? (Enter either \'Yes\' or \'No\') \n>' .format(*random1))
+    abc = input('Sorry, the thing you\'re looking for is currently unavailable. \nWould you like to try our delicious {}? (Enter either \'Yes\' or \'No\') \n> ' .format(*random1))
     print('')
     
     if abc == 'yes' or abc == 'YES' or abc == 'Yes' and abc.isalpha() and len(abc) > 0:
@@ -103,7 +115,7 @@ def unavailable():    # If something is unavailable
             cappucino()
             
     elif abc == 'no' or abc == 'NO' or abc == 'No' and abc.isalpha() and len(abc) > 0:
-        os.system('cls')
+        cls()
         print('Okay, some other time.')
         print('')
         order()
@@ -131,12 +143,12 @@ def order2(shop_name = 'Merryweather Cheesecakes'):  # For ordering different ty
     choice = input('Do you want to order something else? (Enter either \'Yes\' or \'No\' )\n> ')
     
     if choice == 'yes' or choice == 'YES' or choice == 'Yes' and choice.isalpha() and len(choice) > 0:
-        os.system('cls')
+        cls()
         order()
         return cart
     
     elif choice == 'No' or choice == 'no' or choice == 'NO' and choice.isalpha() and len(choice) > 0:
-        os.system('cls')
+        cls()
         print("Here is your final order: \n{}" .format(cart))
         print('')
         abc = input('Thank you for shopping with {}. \npress any key and hit enter to exit program. \n \n' .format(shop_name))
@@ -166,9 +178,9 @@ def order2(shop_name = 'Merryweather Cheesecakes'):  # For ordering different ty
         
         
 def random_suggestion(): # For suggesting random things
-    os.system('cls')
+    cls()
     suggestion_sample = random.sample(random_choice, 1)
-    will = input('We think you would like our {}. \nDo you wish to continue? Enter either \'Yes\' or \'No\'. \n>'.format(*suggestion_sample))
+    will = input('We think you would like our {}. \nDo you wish to continue? Enter either \'Yes\' or \'No\'. \n> '.format(*suggestion_sample))
     
     if will == 'yes' or will == 'YES' or will == 'Yes' and will.isalpha() and len(will) > 0:
         new_list.append(*suggestion_sample)
@@ -189,7 +201,7 @@ def random_suggestion(): # For suggesting random things
             cappucino()
             
     elif will == 'no' or will == 'NO' or will == 'No' and will.isalpha() and len(will) > 0:
-        os.system('cls')
+        cls()
         print('Okay, some other time.')
         print('')
         order()
@@ -197,11 +209,11 @@ def random_suggestion(): # For suggesting random things
 
         
 def bread_cheesecake():
-    os.system('cls')
-    choice = input("What type of Bread cheesecake do you want? \n \na) Double sided Bread cheesecake \nb) Single sided Bread cheesecake \n\nEnter the respective option \'a\', \'b\', or enter \'1\' to go back to menu. \n>")
+    cls()
+    choice = input("What type of Bread cheesecake do you want? \n \na) Double sided Bread cheesecake \nb) Single sided Bread cheesecake \n\nEnter the respective option \'a\', \'b\', or enter \'1\' to go back to menu. \n> ")
     
     if choice  == 'a' or choice == 'A' or choice == 'a)' or choice == 'A)' and choice.isalpha() and len(choice) > 0:
-        os.system('cls')
+        cls()
         
         while cart.count('10 pieces of Double sided Bread cheesecake.') == 0:
             
@@ -209,7 +221,7 @@ def bread_cheesecake():
                 pieces = int(input("And how many pieces of Double sided Bread cheesecake do you want? \n> "))
                 
                 if pieces == 1:
-                    os.system('cls')
+                    cls()
                     print("Here is your order: \n{} piece Double sided Bread cheesecake." .format(pieces))
                     cart.append("{} piece Double sided Bread cheesecake.".format(pieces))
                     order2()
@@ -224,7 +236,7 @@ def bread_cheesecake():
                     bread_cheesecake()
                     
                 elif pieces != 1:
-                    os.system('cls')
+                    cls()
                     print("Here is your order: \n{} pieces of double sided Bread cheesecake." .format(pieces))
                     cart.append("{} pieces of Double sided Bread cheesecake.".format(pieces))
                     order2()
@@ -246,12 +258,12 @@ def bread_cheesecake():
             bread_cheesecake()
             
     elif choice  == 'b' or choice == 'B' or choice == 'b)' or choice == 'B)' and choice.isalpha() and len(choice) > 0:
-        os.system('cls')
+        cls()
         try:
             pieces = int(input("And how many pieces of single sided bread cheesecake do you want? \n> "))
             
             if pieces == 1:
-                os.system('cls')
+                cls()
                 print("Here is your order: \n{} piece single sided Bread cheesecake.".format(pieces))
                 cart.append("{} piece single sided Bread cheesecake.".format(pieces))
                 order2()
@@ -266,7 +278,7 @@ def bread_cheesecake():
                 bread_cheesecake()
                 
             elif pieces != 1:
-                os.system('cls')
+                cls()
                 print('Here is your order: \n{} pieces of single sided bread cheesecake.' .format(pieces))
                 cart.append("{} pieces of single sided bread cheesecake." .format(pieces))
                 order2()
@@ -313,15 +325,15 @@ def bread_cheesecake():
 
         
 def no_egg_cheesecake():
-    os.system('cls')
-    choice = input("What flavour of cheesecake without egg do you want? \na) Chocolate \nb) Vanilla \nc) Strawberry \nd) Blackberry \n \nEnter the respective option \'a\', \'b\', \'c\', \'d\', or enter \'1\' to go back to menu. \n>")
+    cls()
+    choice = input("What flavour of cheesecake without egg do you want? \na) Chocolate \nb) Vanilla \nc) Strawberry \nd) Blackberry \n \nEnter the respective option \'a\', \'b\', \'c\', \'d\', or enter \'1\' to go back to menu. \n> ")
     
     if choice  == 'a' or choice == 'A' or choice == 'a)' or choice == 'A)' and choice.isalpha() and len(choice) > 0:
-        os.system('cls')
-        choco = input('And what type of chocolate flavour do you want? \na) Normal chocolate \nb) Dark chocolate \n>')
+        cls()
+        choco = input('And what type of chocolate flavour do you want? \na) Normal chocolate \nb) Dark chocolate \n> ')
         
         if choco == 'a' or choco == 'A' or choco == 'a)' or choco == 'A)':
-            os.system('cls')
+            cls()
             
             while cart.count('10 piece of Normal chocolate cheesecake without eggs.') == 0:
                 try:
@@ -343,7 +355,7 @@ def no_egg_cheesecake():
                         no_egg_cheesecake()
                         
                     elif pieces != 1:
-                        os.system('cls')
+                        cls()
                         print("Here is your order: \n{} pieces of Normal chocolate cheesecake without eggs." .format(pieces))
                         cart.append("{} pieces of Normal chocolate cheesecake without eggs.".format(pieces))
                         order2()
@@ -384,13 +396,13 @@ def no_egg_cheesecake():
                 no_egg_cheesecake()
                 
     elif choice  == 'b' or choice == 'B' or choice == 'b)' or choice == 'B)' and choice.isalpha() and len(choice) > 0:
-        os.system('cls')
+        cls()
         
         try:
             pieces = int(input("And how many pieces of Vanilla cheesecake without eggs do you want? \n> "))
             
             if pieces == 1:
-                os.system('cls')
+                cls()
                 print("Here is your order: \n{} piece Vanilla cheesecake without eggs.".format(pieces))
                 cart.append("{} piece single Vanilla cheesecake without eggs.".format(pieces))
                 order2()
@@ -405,7 +417,7 @@ def no_egg_cheesecake():
                 no_egg_cheesecake()
                 
             elif pieces != 1:
-                os.system('cls')
+                cls()
                 print('Here is your order: \n{} pieces of Vanilla cheesecake without eggs.' .format(pieces))
                 cart.append("{} pieces of Vanilla cheesecake without eggs." .format(pieces))
                 order2()
@@ -419,12 +431,12 @@ def no_egg_cheesecake():
             no_egg_cheesecake()
             
     elif choice == 'c' or choice == 'C' or choice == 'c)' or choice == 'C)' and choice.isalpha() and len(choice) >0:
-        os.system('cls')
+        cls()
         
         try:
             pieces = int(input("And how many pieces of Strawberry cheesecake without eggs do you want? \n> "))
             if pieces == 1:
-                os.system('cls')
+                cls()
                 print("Here is your order: \n{} piece Strawberry cheesecake without eggs.".format(pieces))
                 cart.append("{} piece single Strawberry cheesecake without eggs.".format(pieces))
                 order2()
@@ -439,7 +451,7 @@ def no_egg_cheesecake():
                 no_egg_cheesecake()
                 
             elif pieces != 1:
-                os.system('cls')
+                cls()
                 print('Here is your order: \n{} pieces of Strawberry cheesecake without eggs.' .format(pieces))
                 cart.append("{} pieces of Strawberry cheesecake without eggs." .format(pieces))
                 order2()
@@ -488,21 +500,21 @@ def no_egg_cheesecake():
 
 
 def low_amount_cheese():
-    os.system('cls')
+    cls()
     choice = input("Which flavour of low amount cheese cheesecake do you want? \na) Chocolate \nb) Vanilla \n \nEnter the respective option \'a\', \'b\' or enter \'1\' to go back to menu. \n> ")
     
     if choice == 'a' or choice == 'A' or choice == 'A)' or choice == 'a)' and choice.isalpha() and len(choice) > 0:
-        os.system('cls')
+        cls()
         
         p_choice  = input('And how much amount of cheese do you want? \na) 25% \nb) 50% \nc) 75% \n \nEnter the respective option \'a\', \'b\', \'c\', or enter \'1\' to go back to menu. \n> ')
         
         if p_choice == 'a' or p_choice == 'A' or p_choice == 'a)' or p_choice == 'A)' and p_choice.isalpha() and len(p_choice) > 0:
-            os.system('cls')
+            cls()
             
             try:
                 amount = int(input('And how many such cheesecakes do you want? \n> '))
                 if amount == 1:
-                    os.system('cls')
+                    cls()
                     print('Here is your order: \n{} piece chocolate cheesecake with 25% cheese.' .format(amount))
                     cart.append('{} piece chocolate cheesecake with 25% cheese.' .format(amount))
                     order2()
@@ -517,7 +529,7 @@ def low_amount_cheese():
                     low_amount_cheese()
                     
                 elif amount != 1:
-                    os.system('cls')
+                    cls()
                     print('Here is your order: \n{} pieces of chocolate cheesecake with 25% cheese.' .format(amount))
                     cart.append('{} pieces of chocolate cheesecake with 25% cheese.' .format(amount))
                     order2()
@@ -532,12 +544,12 @@ def low_amount_cheese():
                 low_amount_cheese()
                 
         elif p_choice == 'b' or p_choice == 'B' or p_choice == 'b)' or p_choice == 'B)' and p_choice.isalpha() and len(p_choice) > 0:
-            os.system('cls')
+            cls()
             
             try:
                 amount = int(input('And how many such cheesecakes do you want? \n> '))
                 if amount == 1:
-                    os.system('cls')
+                    cls()
                     print('Here is your order: \n{} piece chocolate cheesecake with 50% cheese.' .format(amount))
                     cart.append('{} piece chocolate cheesecake with 50% cheese.' .format(amount))
                     order2()
@@ -548,7 +560,7 @@ def low_amount_cheese():
                     low_amount_cheese()
                     
                 elif amount > 1:
-                    os.system('cls')
+                    cls()
                     print('Here is your order: \n{} pieces of chocolate cheesecake with 50% cheese.' .format(amount))
                     cart.append('{} pieces of chocolate cheesecake with 50% cheese.' .format(amount))
                     order2()
@@ -602,15 +614,15 @@ def low_amount_cheese():
             low_amount_cheese()
             
     elif choice == 'b' or choice == 'B' or choice == 'b)' or choice == 'B)' and choice.isalpha() and len(choice) > 0:
-        os.system('cls')
+        cls()
         p_choice  = input('And how much amount of cheese do you want? \na) 25% \nb) 50% \nc) 75% \n> ')
         
         if p_choice == 'a' or p_choice == 'A' or p_choice == 'a)' or p_choice == 'A)' and p_choice.isalpha() and len(p_choice) > 0:
-            os.system('cls')
+            cls()
             try:
                 amount = int(input('And how many such cheesecakes do you want? \n> '))
                 if amount == 1:
-                    os.system('cls')
+                    cls()
                     print('Here is your order: \n{} piece Vanilla cheesecake with 25% cheese.' .format(amount))
                     cart.append('{} piece Vanilla cheesecake with 25% cheese.' .format(amount))
                     order2()
@@ -621,7 +633,7 @@ def low_amount_cheese():
                     low_amount_cheese()
                     
                 elif amount > 1:
-                    os.system('cls')
+                    cls()
                     print('Here is your order: \n{} pieces of Vanilla cheesecake with 25% cheese.' .format(amount))
                     cart.append('{} pieces of Vanilla cheesecake with 25% cheese.' .format(amount))
                     order2()
@@ -640,13 +652,13 @@ def low_amount_cheese():
                 low_amount_cheese()
                 
         elif p_choice == 'b' or p_choice == 'B' or p_choice == 'b)' or p_choice == 'B)' and p_choice.isalpha() and len(p_choice) > 0:
-            os.system('cls')
+            cls()
             
             try:
                 amount = int(input('And how many such cheesecakes do you want? \n> '))
                 
                 if amount == 1:
-                    os.system('cls')
+                    cls()
                     print('Here is your order: \n{} piece Vanilla cheesecake with 50% cheese.' .format(amount))
                     cart.append('{} piece Vanilla cheesecake with 50% cheese.' .format(amount))
                     order2()
@@ -657,7 +669,7 @@ def low_amount_cheese():
                     low_amount_cheese()
                     
                 elif amount > 1:
-                    os.system('cls')
+                    cls()
                     print('Here is your order: \n{} pieces of Vanilla cheesecake with 50% cheese.' .format(amount))
                     cart.append('{} pieces of Vanilla cheesecake with 50% cheese.' .format(amount))
                     order2()
@@ -718,21 +730,21 @@ def low_amount_cheese():
 
         
 def egg_cheesecake():
-    os.system('cls')
+    cls()
     choice = input("What flavour cheesecake do you want? \na) Chocolate \nb) Vanilla \nc) Strawberry \nd) Blackberry \n> ")
     
     if choice  == 'a' or choice == 'A' or choice == 'a)' or choice == 'A)' and choice.isalpha() and len(choice) > 0:
-        os.system('cls')
-        choco = input('And what type of chocolate flavour do you want? \na) Normal chocolate \nb) Dark chocolate \n>')
+        cls()
+        choco = input('And what type of chocolate flavour do you want? \na) Normal chocolate \nb) Dark chocolate \n> ')
         
         if choco == 'a' or choco == 'A' or choco == 'a)' or choco == 'A)':
-            os.system('cls')
+            cls()
             
             try:
                 pieces = int(input("And how many pieces of Normal chocolate cheesecake do you want? \n> "))
                 
                 if pieces == 1:
-                    os.system('cls')
+                    cls()
                     print("Here is your order: \n{} piece Normal chocolate cheesecake." .format(pieces))
                     cart.append("{} piece Normal chocolate cheesecake.".format(pieces))
                     order2()
@@ -747,7 +759,7 @@ def egg_cheesecake():
                     egg_cheesecake()
                     
                 elif pieces != 1:
-                    os.system('cls')
+                    cls()
                     print("Here is your order: \n{} pieces of Normal chocolate cheesecake." .format(pieces))
                     cart.append("{} pieces of Normal chocolate cheesecake.".format(pieces))
                     order2()
@@ -762,12 +774,12 @@ def egg_cheesecake():
                 egg_cheesecake()
                 
         elif choco == 'b' or choco == 'B' or choco == 'B)' or choco =='b)':
-            os.system('cls')
+            cls()
             try:
                 pieces = int(input("And how many pieces of Dark chocolate cheesecake do you want? \n> "))
                 
                 if pieces == 1:
-                    os.system('cls')
+                    cls()
                     print("Here is your order: \n{} piece Dark chocolate cheesecake." .format(pieces))
                     cart.append("{} piece Dark chocolate cheesecake.".format(pieces))
                     order2()
@@ -782,7 +794,7 @@ def egg_cheesecake():
                     egg_cheesecake()
                     
                 elif pieces != 1:
-                    os.system('cls')
+                    cls()
                     print("Here is your order: \n{} pieces of Dark chocolate cheesecake." .format(pieces))
                     cart.append("{} pieces of Dark chocolate cheesecake.".format(pieces))
                     order2()
@@ -813,13 +825,13 @@ def egg_cheesecake():
             egg_cheesecake()
             
     elif choice  == 'b' or choice == 'B' or choice == 'b)' or choice == 'B)' and choice.isalpha() and len(choice) > 0:
-        os.system('cls')
+        cls()
         
         try:
             pieces = int(input("And how many pieces of Vanilla cheesecake do you want? \n> "))
             
             if pieces == 1:
-                os.system('cls')
+                cls()
                 print("Here is your order: \n{} piece Vanilla cheesecake.".format(pieces))
                 cart.append("{} piece single Vanilla cheesecake.".format(pieces))
                 order2()
@@ -834,7 +846,7 @@ def egg_cheesecake():
                 egg_cheesecake()
                 
             elif pieces != 1:
-                os.system('cls')
+                cls()
                 print('Here is your order: \n{} pieces of Vanilla cheesecake.' .format(pieces))
                 cart.append("{} pieces of Vanilla cheesecake." .format(pieces))
                 order2()
@@ -849,13 +861,13 @@ def egg_cheesecake():
             egg_cheesecake()
             
     elif choice == 'c' or choice == 'C' or choice == 'c)' or choice == 'C)' and choice.isalpha() and len(choice) >0:
-        os.system('cls')
+        cls()
         
         try:
             pieces = int(input("And how many pieces of Strawberry cheesecake do you want? \n> "))
             
             if pieces == 1:
-                os.system('cls')
+                cls()
                 print("Here is your order: \n{} piece Strawberry cheesecake.".format(pieces))
                 cart.append("{} piece single Strawberry cheesecake.".format(pieces))
                 order2()
@@ -870,7 +882,7 @@ def egg_cheesecake():
                 egg_cheesecake()
                 
             elif pieces != 1:
-                os.system('cls')
+                cls()
                 print('Here is your order: \n{} pieces of Strawberry cheesecake.' .format(pieces))
                 cart.append("{} pieces of Strawberry cheesecake." .format(pieces))
                 order2()
@@ -885,13 +897,13 @@ def egg_cheesecake():
             egg_cheesecake()
             
     elif choice == 'd' or choice == 'D' or choice == "D)" or choice =='d)' and choice.isalpha() and len(choice) > 0:
-        os.system('cls')
+        cls()
         
         try:
             pieces = int(input("And how many pieces of Blackberry cheesecake do you want? \n> "))
             
             if pieces == 1:
-                os.system('cls')
+                cls()
                 print("Here is your order: \n{} piece Blackberry cheesecake.".format(pieces))
                 cart.append("{} piece single Blackberry cheesecake.".format(pieces))
                 order2()
@@ -906,7 +918,7 @@ def egg_cheesecake():
                 egg_cheesecake()
                 
             elif pieces != 1:
-                os.system('cls')
+                cls()
                 print('Here is your order: \n{} pieces of Blackberry cheesecake.' .format(pieces))
                 cart.append("{} pieces of Blackberry cheesecake." .format(pieces))
                 order2()
@@ -940,20 +952,20 @@ def egg_cheesecake():
 
         
 def cappucino():
-    os.system('cls')
+    cls()
     choice = input('What Cappucino size do you want?\n \na) Small \nb) Medium \nc) Large \n\nPlease enter either \'a\', \'b\' or \'c\'. \n> ')
     
     if choice  == 'a' or choice == 'A' or choice == 'a)' or choice == 'A)' and choice.isalpha() and len(choice) > 0:
         unavailable()
         
     elif choice == 'b' or choice == 'B' or choice == 'b)' or choice == 'B)' and choice.isalpha() and len(choice) > 0:
-        os.system('cls')
+        cls()
         
         try:
             pieces = int(input("And how many Medium Cappucino glasses do you want? \n> "))
             
             if pieces == 1:
-                os.system('cls')
+                cls()
                 print("Here is your order: \n{} Medium Cappucino glass.".format(pieces))
                 cart.append("{} Medium Cappucino glass.".format(pieces))
                 order2()
@@ -968,7 +980,7 @@ def cappucino():
                 cappucino()
                 
             elif pieces != 1:
-                os.system('cls')
+                cls()
                 print('Here is your order: \n{} Medium Cappucino glasses.' .format(pieces))
                 cart.append("{} Medium Cappucino glasses." .format(pieces))
                 order2()
@@ -983,13 +995,13 @@ def cappucino():
             cappucino()
             
     elif choice == 'c' or choice == 'C' or choice == 'c)' or choice == 'C)' and choice.isalpha() and len(choice) > 0:
-        os.system('cls')
+        cls()
         
         try:
             pieces = int(input("And how many Large Cappucino glasses do you want? \n> "))
             
             if pieces == 1:
-                os.system('cls')
+                cls()
                 print("Here is your order: \n{} Large Cappucino glass.".format(pieces))
                 cart.append("{} Large Cappucino glass.".format(pieces))
                 order2()
@@ -1004,7 +1016,7 @@ def cappucino():
                 cappucino()
                 
             elif pieces != 1:
-                os.system('cls')
+                cls()
                 print('Here is your order: \n{} Large Cappucino glasses.' .format(pieces))
                 cart.append("{} Large Cappucino glasses." .format(pieces))
                 order2()
