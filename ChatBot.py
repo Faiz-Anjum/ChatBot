@@ -10,7 +10,7 @@ from time import sleep      # Default time = 3 Seconds
 
 
 
-font_list = ['big', 'ogre']
+font_list = ['big']
 random_font = random.sample(font_list, 1)
 
 try:    # Optional for style, importing pyfiglet module
@@ -93,7 +93,7 @@ def empty_response():  # For empty responses (Do you really think I wouldn't hav
 def unavailable():    # If something is unavailable
     cls()
     random1 = random.sample(random_choice, 1)
-    abc = input('Sorry, the thing you\'re looking for is currently unavailable. \nWould you like to try our delicious {}? (Enter either \'Yes\' or \'No\') \n> ' .format(*random1))
+    abc = input('Sorry, the thing you\'re looking for is currently unavailable.\n \nWould you like to try our delicious {}? (Enter either \'Yes\' or \'No\') \n> ' .format(*random1))
     print('')
     
     if abc == 'yes' or abc == 'YES' or abc == 'Yes' and abc.isalpha() and len(abc) > 0:
@@ -149,7 +149,10 @@ def order2(shop_name = 'Merryweather Cheesecakes'):  # For ordering different ty
     
     elif choice == 'No' or choice == 'no' or choice == 'NO' and choice.isalpha() and len(choice) > 0:
         cls()
-        print("Here is your final order: \n{}" .format(cart))
+        print("Here is your final order: ") #\n{} .format(*cart))
+        print('')
+        for items in cart:
+            print('{}\n' .format(items))
         print('')
         abc = input('Thank you for shopping with {}. \npress any key and hit enter to exit program. \n \n' .format(shop_name))
         
@@ -180,7 +183,7 @@ def order2(shop_name = 'Merryweather Cheesecakes'):  # For ordering different ty
 def random_suggestion(): # For suggesting random things
     cls()
     suggestion_sample = random.sample(random_choice, 1)
-    will = input('We think you would like our {}. \nDo you wish to continue? Enter either \'Yes\' or \'No\'. \n> '.format(*suggestion_sample))
+    will = input('We think you would like our {}.\n \nDo you wish to continue? Enter either \'Yes\' or \'No\'. \n> '.format(*suggestion_sample))
     
     if will == 'yes' or will == 'YES' or will == 'Yes' and will.isalpha() and len(will) > 0:
         new_list.append(*suggestion_sample)
@@ -205,6 +208,9 @@ def random_suggestion(): # For suggesting random things
         print('Okay, some other time.')
         print('')
         order()
+    elif will != 'no' or will != 'NO' or will != 'No' or will != 'Yes' or will != 'YES' or will != 'yes':
+         empty_response()
+         random_suggestion()
 
 
         
