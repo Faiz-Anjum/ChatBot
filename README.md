@@ -15,6 +15,7 @@ The exe file for windows is inside the dist directory.
 (ii) Some bugs may occur while ordering more than 10 items in more than one conservative tries.
 
 **New Update**
+(A) This script is now cross-platform, supporting both Windows and Debian based distros.
 
 (i) Optional for enhancing experience: Need to install pyfiglet.
 
