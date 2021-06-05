@@ -8,7 +8,15 @@ import os           # For clearing Terminal
 
 from time import sleep      # Default time = 3 Seconds
 
+def cls():
 
+    if sys.platform.startswith('win32' or 'win64' or 'win86'):
+        os.system('cls')
+    else:
+        os.system('clear')
+        
+        
+cls()  # First terminal clearance
 
 font_list = ['big']
 random_font = random.sample(font_list, 1)
@@ -34,15 +42,6 @@ def limit():             # If order exceeds the 10 item limit
     cls()
     print('Sorry you cannot order more than 10 items.')
     sleep(3)
-
-
-def cls():
-
-    if sys.platform.startswith('win32' or 'win64' or 'win86'):
-        os.system('cls')
-    else:
-        os.system('clear')
-
 
 
 
