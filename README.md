@@ -12,7 +12,7 @@ The exe file for windows is inside the dist directory.
 	The old .exe file is working fine but it is outdated and will no longer be updated.
 	The .exe file is still working and can be used to depict what the original script looked like.
 
-(ii) Some bugs may occur while ordering more than 10 items in more than one conservative tries.
+(ii) Some bugs may occur while ordering more than 10 items in more than one consecutive tries.
 
 **New Update**
 (A) This script is now cross-platform, supporting both Windows and Debian based distros.
