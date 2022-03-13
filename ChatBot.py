@@ -387,7 +387,7 @@ def no_egg_cheesecake():
                 
         elif choco != choco.isalpha():
                 empty_response()
-                no_egg-cheesecake()
+                no_egg_cheesecake()
                 
         elif len(choco) == 0:
                 empty_response()
